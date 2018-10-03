@@ -24,5 +24,7 @@ class ShopProduct {
 }
 
 $product1 = new ShopProduct("Собачье сердце", "Михаил", "Булгаков", 5.99);
+$product2 = new ShopProduct("Пропавший без вести", "Группа", "ДДТ", 10.99);
 
-print "Автор: {$product1->getProducer()} ";
+print "Автор: {$product1->getProducer()} <br>";
+print "Исполнитель: {$product2->getProducer()}";
