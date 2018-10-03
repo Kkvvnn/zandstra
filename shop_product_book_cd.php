@@ -12,7 +12,7 @@ class ShopProduct {
 	public $playLength        = 0;
 	
 	public function __construct( $title, $firstName, $mainName, 
-				     $price, $type, $numPages=0, $playLength=0 ) 
+				     $price, $type, $numPages, $playLength ) 
 	{
 		$this->title             = $title;
 		$this->producerMainName  = $mainName;
@@ -54,8 +54,5 @@ class ShopProduct {
 	}
 }
 
-$product1 = new ShopProduct("Собачье сердце", "Михаил", "Булгаков", 5.99);
-$product2 = new ShopProduct("Пропавший без вести", "Группа", "ДДТ", 10.99);
-
-print "Автор: {$product1->getProducer()} <br>";
-print "Исполнитель: {$product2->getProducer()}";
+$product1 = new ShopProduct("Собачье сердце", "Михаил", "Булгаков", 5.99, "book", 605, 0);
+$product2 = new ShopProduct("Пропавший без вести", "Группа", "ДДТ", 10.99, "cd", 0, 103);
