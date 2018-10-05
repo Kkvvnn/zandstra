@@ -7,18 +7,14 @@ class ShopProduct {
 	public $producerFirstName = "Имя автора";
 	public $producerMainName  = "Фамилия автора";
 	public $price 		  = 0;
-	public $numPages          = 0;
-	public $playLength        = 0;
 	
 	public function __construct( $title, $firstName, $mainName, 
-				     $price, $numPages, $playLength ) 
+				     $price ) 
 	{
 		$this->title             = $title;
 		$this->producerMainName  = $mainName;
 		$this->producerFirstName = $firstName;
 		$this->price             = $price;
-		$this->numPages          = $numPages;
-		$this->playLength        = $playLength;
 	}
 
 
@@ -39,6 +35,15 @@ class ShopProduct {
 
 class CDproduct extends ShopProduct {
 
+	public $playLength;
+
+	public function __construct($title, $firstName, $mainName,
+					$price, $playLength) 
+	{
+		parent::__construct($title, $firstName, $mainName, $price);
+		$this->playLength = $playLength;
+	}
+	
 	public function getPlayLength()
 	{
 		return $this->playLength;
@@ -56,6 +61,15 @@ class CDproduct extends ShopProduct {
 
 class BookProduct extends ShopProduct {
 
+	public $numPages;
+
+	public function __construct($title, $firstName, $mainName,
+					$price, $numPages) 
+	{
+		parent::__construct($title, $firstName, $mainName, $price);
+		$this->numPages = $numPages;
+	}
+	
 	public function getNumberOfPages()
 	{
 		return $this->numPages;
