@@ -56,7 +56,6 @@ class CDproduct extends ShopProduct {
 		
 		return $base;
 	}
-	}
 }
 
 
