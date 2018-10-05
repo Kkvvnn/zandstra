@@ -7,7 +7,7 @@ class ShopProduct {
 	public $producerFirstName = "Имя автора";
 	public $producerMainName  = "Фамилия автора";
 	public $price 		  = 0;
-	public $type              = "unknown_type";
+	public $type              = "not_set";
 	public $numPages          = 0;
 	public $playLength        = 0;
 	
