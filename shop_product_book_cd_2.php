@@ -51,10 +51,11 @@ class CDproduct extends ShopProduct {
 	
 	public function getSummaryLine()
 	{
-		$base  = "{$this->title} ( {$this->producerMainName}, ";
-		$base .= "{$this->producerFirstName} )";
+		$basw  = parent::getSummaryLine();
 		$base .= ": Время звучания - {$this->playLength}";
+		
 		return $base;
+	}
 	}
 }
 
@@ -77,8 +78,7 @@ class BookProduct extends ShopProduct {
 	
 	public function getSummaryLine()
 	{
-		$base  = "{$this->title} ( {$this->producerMainName}, ";
-		$base .= "{$this->producerFirstName} )";
+		$basw  = parent::getSummaryLine();
 		$base .= ": {$this->numPages} стр.";
 		return $base;
 	}
