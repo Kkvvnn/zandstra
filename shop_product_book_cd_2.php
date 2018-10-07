@@ -3,10 +3,11 @@
 Header("Content-Type:text/html; charset=UTF-8");
 
 class ShopProduct {
-	public $title 		  = "Стандартный товар";
-	public $producerFirstName = "Имя автора";
-	public $producerMainName  = "Фамилия автора";
-	public $price 		  = 0;
+	private   $title             = "Стандартный товар";
+	private   $producerFirstName = "Имя автора";
+	private   $producerMainName  = "Фамилия автора";
+	protected $price             = 0;
+	private   $discount          = 0;
 	
 	public function __construct( $title, $firstName, $mainName, 
 				     $price ) 
@@ -17,6 +18,29 @@ class ShopProduct {
 		$this->price             = $price;
 	}
 
+	public function getProducerFirstName () {
+		return $this->producerFirstName;
+	}
+	
+	public function getProducerMainName () {
+		return $this->producerMainName;
+	}
+	
+	public function setDiscount($num) {
+		$this->discount = $num;
+	}
+
+	public function getDiscount() {
+		return $this->discount;
+	}
+
+	public function getTitle() {
+		return $this->title;
+	}
+
+	public function getPrice() {
+		return ($this->price - $this->discount);
+	}
 
 	public function getSummaryLine()
 	{
@@ -28,14 +52,14 @@ class ShopProduct {
 	public function getProducer() 
 	{
 		return "{$this->producerFirstName} "
-			."{$this->producerMainName}";
+		      ."{$this->producerMainName}";
 	}
 }
 
 
 class CDproduct extends ShopProduct {
 
-	public $playLength;
+	private $playLength;
 
 	public function __construct($title, $firstName, $mainName,
 					$price, $playLength) 
@@ -61,7 +85,7 @@ class CDproduct extends ShopProduct {
 
 class BookProduct extends ShopProduct {
 
-	public $numPages;
+	private $numPages;
 
 	public function __construct($title, $firstName, $mainName,
 					$price, $numPages) 
@@ -80,5 +104,9 @@ class BookProduct extends ShopProduct {
 		$base  = parent::getSummaryLine();
 		$base .= ": {$this->numPages} стр.";
 		return $base;
+	}
+
+	public function getPrice() {
+		return $this->price;
 	}
 }
